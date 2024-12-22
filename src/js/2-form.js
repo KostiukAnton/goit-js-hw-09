@@ -17,7 +17,11 @@ const saveToLocalStorage = () => {
 // Функція для завантаження даних із локального сховища
 const loadFromLocalStorage = () => {
   const savedData = localStorage.getItem(localStorageKey);
-  return savedData ? JSON.parse(savedData) : null;
+  if (savedData) {
+    return JSON.parse(savedData);
+  } else {
+    return null;
+  }
 };
 
 // Заповнення форми даними з локального сховища при завантаженні сторінки
